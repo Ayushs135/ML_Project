@@ -1,0 +1,109 @@
+/* General Page Layout */
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+.container {
+    max-width: 700px;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 40px 50px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 26px;
+    color: #0055a5;
+    margin: 0;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Form */
+.form-section {
+    text-align: center;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+select {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    background: #fafafa;
+}
+
+button {
+    background-color: #0055a5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #0074e8;
+}
+
+/* Result Card */
+.result-card {
+    background: #eaf5ff;
+    border-left: 6px solid #0055a5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.result-card h2 {
+    margin-top: 0;
+    color: #0055a5;
+}
+
+.info p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.highlight {
+    color: #e60000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
