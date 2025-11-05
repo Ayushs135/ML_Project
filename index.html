@@ -1,32 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>FPL Prediction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Premier League Predictor</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h2>Fantasy Premier League - Next GW Prediction</h2>
+        <header>
+            <h1>⚽ Fantasy Premier League Predictor</h1>
+            <p class="subtitle">Predict next gameweek points for any player</p>
+        </header>
 
-        <form action="/predict" method="post">
-            <label for="player">Select Player:</label>
-            <select name="player" id="player">
-                {% for p in players %}
-                    <option value="{{ p }}">{{ p }}</option>
-                {% endfor %}
-            </select>
-            <button type="submit">Predict</button>
-        </form>
+        <section class="form-section">
+            <form method="post" action="/predict">
+                <label for="player">Select a Player:</label>
+                <select name="player" id="player">
+                    {% for p in players %}
+                    <option value="{{ p }}" {% if p == player %}selected{% endif %}>{{ p }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Predict</button>
+            </form>
+        </section>
 
         {% if prediction %}
-        <div class="result">
-            <h3>Prediction Result</h3>
-            <p><b>Player:</b> {{ player_name }}</p>
-            <p><b>Team:</b> {{ team }}</p>
-            <p><b>Avg Points (Last 5 GWs):</b> {{ avg_points }}</p>
-            <p><b>Predicted Next GW Points:</b> {{ prediction }}</p>
-        </div>
+        <section class="result-card">
+            <h2>{{ player }}</h2>
+            <div class="info">
+                <p><strong>Team:</strong> {{ team }}</p>
+                <p><strong>Average (Last 5 GWs):</strong> {{ avg_points }}</p>
+                <p><strong>Predicted Points (Next GW):</strong> <span class="highlight">{{ prediction }}</span></p>
+            </div>
+        </section>
         {% endif %}
+
+        <footer>
+            <p>Built with Flask &middot; Fantasy Premier League Data</p>
+        </footer>
     </div>
 </body>
 </html>
