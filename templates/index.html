@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FPL Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Fantasy Premier League - Next GW Prediction</h2>
+
+        <form action="/predict" method="post">
+            <label for="player">Select Player:</label>
+            <select name="player" id="player">
+                {% for p in players %}
+                    <option value="{{ p }}">{{ p }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h3>Prediction Result</h3>
+            <p><b>Player:</b> {{ player_name }}</p>
+            <p><b>Team:</b> {{ team }}</p>
+            <p><b>Avg Points (Last 5 GWs):</b> {{ avg_points }}</p>
+            <p><b>Predicted Next GW Points:</b> {{ prediction }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
